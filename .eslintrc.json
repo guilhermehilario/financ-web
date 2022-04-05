@@ -35,10 +35,7 @@
     "import/extensions": [
       "warn",
       "ignorePackages",
-      {
-        "ts": "never",
-        "tsx": "never"
-      }
+      { "ts": "never", "tsx": "never" }
     ],
     "import-helpers/order-imports": [
       "warn",
@@ -49,14 +46,19 @@
       }
     ],
     "no-use-before-define": "off",
-    "@typescript-eslint/no-explicit-any": ["error", { "ignoreRestArgs": false }]
+    "@typescript-eslint/no-explicit-any": [
+      "error",
+      { "ignoreRestArgs": false }
+    ],
+    "@typescript-eslint/no-empty-interface": [
+      "warn",
+      { "allowSingleExtends": true }
+    ]
   },
   "settings": {
     "import/resolver": {
       "typescript": {},
-      "node": {
-        "extensions": [".js", ".jsx", ".ts", ".tsx"]
-      }
+      "node": { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
     }
   }
 }
