@@ -37,6 +37,7 @@
       "ignorePackages",
       { "ts": "never", "tsx": "never" }
     ],
+    "object-curly-spacing": "off",
     "import-helpers/order-imports": [
       "warn",
       {

@@ -1,21 +1,25 @@
 import React from 'react';
 
-import { Container } from './styles';
+// import { Avatar } from './avartar';
+import * as styles from './styles';
 
 export const SideMenu: React.FC = () => (
-  <Container>
-    <img src="https://avatars.githubusercontent.com/u/54961000?v=4" alt="" />
+  <styles.Container>
+    <styles.Avatar
+      src="https://avatars.githubusercontent.com/u/54961000?v=4"
+      alt=""
+    />
     <p>William de Souza</p>
 
-    <ul>
-      <li>Dashboard</li>
-      <li>Wallets</li>
-      <li>Calendar</li>
-      <li>Analytics</li>
-      <li>Learn</li>
-      <li>Settings</li>
-    </ul>
+    <styles.NavList>
+      <styles.ItemList>Dashboard</styles.ItemList>
+      <styles.ItemList>Wallets</styles.ItemList>
+      <styles.ItemList>Calendar</styles.ItemList>
+      <styles.ItemList>Analytics</styles.ItemList>
+      <styles.ItemList>Learn</styles.ItemList>
+      <styles.ItemList>Settings</styles.ItemList>
+    </styles.NavList>
 
     <button type="submit">Logout</button>
-  </Container>
+  </styles.Container>
 );
