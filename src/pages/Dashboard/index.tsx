@@ -1,7 +1,9 @@
-import { Container } from './styles';
-import { SideMenu } from '../../components/SideMenu';
+import React from 'react';
 
-export const Dashboard = (): JSX.Element => (
+import { SideMenu } from '../../components/SideMenu';
+import { Container } from './styles';
+
+export const Dashboard: React.FC = () => (
   <Container>
     <SideMenu />
   </Container>
