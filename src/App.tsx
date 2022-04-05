@@ -1,8 +1,17 @@
 import React from 'react';
-import { Dashboard } from './pages/Dashboard';
+import { BrowserRouter } from 'react-router-dom';
 
-function App() {
-  return <Dashboard></Dashboard>;
-}
+import { ThemeProvider } from 'styled-components';
 
-export default App;
+import GlobalStyle from './global/reset';
+import { theme } from './global/theme';
+import { Root } from './routes';
+
+export const App: React.FC = () => (
+  <ThemeProvider theme={theme}>
+    <GlobalStyle />
+    <BrowserRouter>
+      <Root />
+    </BrowserRouter>
+  </ThemeProvider>
+);
