@@ -2,13 +2,12 @@ import styled from 'styled-components';
 
 import { theme } from '../../global/theme';
 
-interface StyledTextProps {
+export interface StyledTextProps {
   color: keyof typeof theme.colors;
   fontSize: keyof typeof theme.fontSize;
   textCase: 'none' | 'capitalize' | 'uppercase' | 'lowercase';
   bold: boolean;
 }
-
 export const StyledText = styled.text<StyledTextProps>`
   font-family: ${({ bold }) => (bold ? 'Inter-Bold' : 'Inter')};
   color: ${({ color }) => theme.colors[color]};
