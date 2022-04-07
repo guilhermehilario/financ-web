@@ -1,7 +1,7 @@
 import React from 'react';
 
-// import { Avatar } from './avartar';
 import { Text } from '../Text';
+import { TextButton } from '../TextButton';
 import * as styles from './styles';
 
 export const SideMenu: React.FC = () => (
@@ -10,11 +10,9 @@ export const SideMenu: React.FC = () => (
       src="https://avatars.githubusercontent.com/u/54961000?v=4"
       alt=""
     />
-
     <Text fontSize="normal" color="secondary" bold>
       William de Souza
     </Text>
-
     <styles.NavList>
       <styles.ItemList>
         <Text fontSize="medium" color="text" bold>
@@ -52,7 +50,9 @@ export const SideMenu: React.FC = () => (
         </Text>
       </styles.ItemList>
     </styles.NavList>
-
-    <button type="submit">Logout</button>
+    <styles.ButtonLogoutGroup>
+      <TextButton type="submit">Logout</TextButton>
+      <Text>{'-->'}</Text>
+    </styles.ButtonLogoutGroup>
   </styles.Container>
 );

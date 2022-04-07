@@ -8,7 +8,7 @@ export const Container = styled.div`
   flex-direction: column;
 
   background-color: ${({ theme }) => theme.colors.shape};
-  border-radius: 0 20px 20px 0;
+  border-radius: 0 60px 60px 0;
   width: 25vw;
   height: 100vh;
   padding: 32px;
@@ -38,4 +38,11 @@ export const ItemList = styled.li`
 export const Link = styled(Linking)`
   color: inherit;
   text-decoration: none;
+`;
+
+export const ButtonLogoutGroup = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
 `;
