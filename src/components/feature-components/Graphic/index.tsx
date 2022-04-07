@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { formatCurrency } from '../../../functions/formatCurrency';
 
 import { Text } from '../../Text';
 import * as styles from './styles';
@@ -32,16 +33,20 @@ export const Graphic = ({ income, outcome, currency }: GrapichProps) => {
   }, [income, incomePercentage, outcome, outcomePercentage]);
   return (
     <styles.Container>
-      <h1>{currency}</h1>
       <styles.Info>
-        <Text color="success">{income}</Text>
-        <Text color="danger">{outcome}</Text>
+        <Text color="success">{`${incomePercentage}%`}</Text>
+        <Text color="danger">{`${outcomePercentage}%`}</Text>
       </styles.Info>
 
       <styles.GraphicBar>
         <styles.IncomeBar width={incomePercentageStyle} />
         <styles.OutcomeBar width={outcomePercentageStyle} />
       </styles.GraphicBar>
+
+      <styles.Info>
+        <Text color="success">{formatCurrency(income, currency)}</Text>
+        <Text color="danger">{formatCurrency(outcome, currency)}</Text>
+      </styles.Info>
     </styles.Container>
   );
 };

@@ -23,6 +23,7 @@ export const Info = styled.div`
 
 export const GraphicBar = styled.div`
   width: 100%;
+  margin: 10px 0;
   height: 5px;
   display: flex;
   flex-direction: row;
