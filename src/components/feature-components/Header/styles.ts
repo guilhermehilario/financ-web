@@ -12,6 +12,7 @@ export const Container = styled.div`
   height: 40vh;
   border-radius: 0 0 20px 20px;
   padding: 20px 40px;
+  margin-bottom: 16px;
 `;
 
 export const Title = styled.h1<TitleProps>`

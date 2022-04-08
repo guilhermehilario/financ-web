@@ -3,11 +3,10 @@ import { Link as Linking } from 'react-router-dom';
 import { lighten } from 'polished';
 import styled from 'styled-components';
 
-import { icons } from '../../global/icons';
-
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 
   background-color: ${({ theme }) => theme.colors.shape};
   border-radius: 0 60px 60px 0;
@@ -16,9 +15,15 @@ export const Container = styled.div`
   padding: 32px;
 `;
 
+export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+`;
 export const Avatar = styled.img`
+  background-color: '#fff';
   border-radius: 20%;
-  margin: 32px 0 16px;
+  margin: 32px 0;
   width: 25%;
   border: 2px solid ${({ theme }) => theme.colors.shape_dark};
 `;
@@ -47,9 +52,4 @@ export const ButtonLogoutGroup = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-`;
-
-export const Icon = styled(icons.arrow_logout)`
-  color: ${({ theme }) => theme.colors.success};
 `;

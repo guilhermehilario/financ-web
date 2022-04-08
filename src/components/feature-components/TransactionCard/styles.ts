@@ -14,7 +14,7 @@ export const Container = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: 20px;
   overflow: hidden;
-  margin: 40px;
+  margin: 16px;
   width: 90%;
 `;
 
