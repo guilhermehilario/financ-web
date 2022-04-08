@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { formatCurrency } from '../../../functions/formatCurrency';
-import { icons } from '../../../global/icons';
+import { iconsLib } from '../../../global/icons';
 import { Text } from '../../Text';
 import { Container, IconWrapper, InfoContainer, InfoWrapper } from './styles';
 import { TransactionCardProps } from './types';
@@ -16,7 +16,7 @@ export const TransactionCard = ({
 }: TransactionCardProps) => (
   <Container>
     <IconWrapper type={type}>
-      {type === 'income' ? <icons.dollar /> : <icons.home />}
+      {type === 'income' ? <iconsLib.dollar /> : <iconsLib.home />}
     </IconWrapper>
 
     <InfoWrapper>

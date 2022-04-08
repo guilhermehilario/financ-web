@@ -1,6 +1,7 @@
 import React from 'react';
 
-// import { theme } from '../../global/theme';
+import { iconsLib } from '../../global/icons';
+import { theme } from '../../global/theme';
 import { Text } from '../Text';
 import { TextButton } from '../TextButton';
 import {
@@ -63,6 +64,7 @@ export const SideMenu: React.FC = () => (
     </Content>
     <ButtonLogoutGroup>
       <TextButton>Logout</TextButton>
+      <iconsLib.arrow_logout size={30} color={theme.colors.shape_dark} />
     </ButtonLogoutGroup>
   </Container>
 );

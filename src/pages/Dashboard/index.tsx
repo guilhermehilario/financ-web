@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { FabButton } from '../../components/feature-components/FabButton';
 import { Header } from '../../components/feature-components/Header';
 import { TransactionCard } from '../../components/feature-components/TransactionCard';
 import { SideMenu } from '../../components/SideMenu';
@@ -19,5 +20,6 @@ export const Dashboard: React.FC = () => (
         type="outcome"
       />
     </DashboardContainer>
+    <FabButton />
   </Container>
 );
