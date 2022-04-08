@@ -32,6 +32,8 @@
     "react/jsx-no-undef": "off",
     "react/function-component-definition": "off",
     "import/prefer-default-export": "off",
+    "arrow-parens": "off",
+    "implicit-arrow-linebreak": "off",
     "import/extensions": [
       "warn",
       "ignorePackages",
@@ -46,11 +48,10 @@
         "alphabetize": { "order": "asc", "ignoreCase": true }
       }
     ],
+    "object-curly-newline": "off",
     "no-use-before-define": "off",
-    "@typescript-eslint/no-explicit-any": [
-      "error",
-      { "ignoreRestArgs": false }
-    ],
+    "no-confusing-arrow": "off",
+    "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-empty-interface": [
       "warn",
       { "allowSingleExtends": true }

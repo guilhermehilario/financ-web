@@ -1,12 +1,23 @@
 import React from 'react';
 
 import { Header } from '../../components/feature-components/Header';
+import { TransactionCard } from '../../components/feature-components/TransactionCard';
 import { SideMenu } from '../../components/SideMenu';
-import { Container } from './styles';
+import { Container, DashboardContainer } from './styles';
 
 export const Dashboard: React.FC = () => (
   <Container>
     <SideMenu />
-    <Header title="Dashboard" />
+    <DashboardContainer>
+      <Header title="Dashboard" />
+      <TransactionCard id="123" title="teste" description="teste" value={100} />
+      <TransactionCard
+        id="124"
+        title="teste"
+        description="teste"
+        value={100}
+        type="outcome"
+      />
+    </DashboardContainer>
   </Container>
 );

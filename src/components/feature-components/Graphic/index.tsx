@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { formatCurrency } from '../../../functions/formatCurrency';
 
+import { formatCurrency } from '../../../functions/formatCurrency';
 import { Text } from '../../Text';
-import * as styles from './styles';
+import { Container, Info, GraphicBar, IncomeBar, OutcomeBar } from './styles';
 import { GrapichProps } from './types';
 
 export const Graphic = ({ income, outcome, currency }: GrapichProps) => {
@@ -32,21 +32,22 @@ export const Graphic = ({ income, outcome, currency }: GrapichProps) => {
     calculatePercentage();
   }, [income, incomePercentage, outcome, outcomePercentage]);
   return (
-    <styles.Container>
-      <styles.Info>
+    // TODO: arrumar o import do style
+    <Container>
+      <Info>
         <Text color="success">{`${incomePercentage}%`}</Text>
         <Text color="danger">{`${outcomePercentage}%`}</Text>
-      </styles.Info>
+      </Info>
 
-      <styles.GraphicBar>
-        <styles.IncomeBar width={incomePercentageStyle} />
-        <styles.OutcomeBar width={outcomePercentageStyle} />
-      </styles.GraphicBar>
+      <GraphicBar>
+        <IncomeBar width={incomePercentageStyle} />
+        <OutcomeBar width={outcomePercentageStyle} />
+      </GraphicBar>
 
-      <styles.Info>
+      <Info>
         <Text color="success">{formatCurrency(income, currency)}</Text>
         <Text color="danger">{formatCurrency(outcome, currency)}</Text>
-      </styles.Info>
-    </styles.Container>
+      </Info>
+    </Container>
   );
 };

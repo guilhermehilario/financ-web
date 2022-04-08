@@ -1,58 +1,65 @@
 import React from 'react';
 
+import { icons } from '../../global/icons';
+import { theme } from '../../global/theme';
 import { Text } from '../Text';
 import { TextButton } from '../TextButton';
-import * as styles from './styles';
+import {
+  Container,
+  Avatar,
+  NavList,
+  ItemList,
+  Link,
+  ButtonLogoutGroup,
+} from './styles';
 
 export const SideMenu: React.FC = () => (
-  <styles.Container>
-    <styles.Avatar
-      src="https://avatars.githubusercontent.com/u/54961000?v=4"
-      alt=""
-    />
+  <Container>
+    <Avatar src="https://avatars.githubusercontent.com/u/54961000?v=4" alt="" />
     <Text fontSize="normal" color="secondary" bold>
       William de Souza
     </Text>
-    <styles.NavList>
-      <styles.ItemList>
+    <NavList>
+      <ItemList>
         <Text fontSize="medium" color="text" bold>
-          <styles.Link to="/">Dashboard</styles.Link>
+          <Link to="/">Dashboard</Link>
         </Text>
-      </styles.ItemList>
+      </ItemList>
 
-      <styles.ItemList>
+      <ItemList>
         <Text fontSize="medium" color="text" bold>
-          <styles.Link to="/">Wallets</styles.Link>
+          <Link to="/">Wallets</Link>
         </Text>
-      </styles.ItemList>
+      </ItemList>
 
-      <styles.ItemList>
+      <ItemList>
         <Text fontSize="medium" color="text" bold>
-          <styles.Link to="/">Calendar</styles.Link>
+          <Link to="/">Calendar</Link>
         </Text>
-      </styles.ItemList>
+      </ItemList>
 
-      <styles.ItemList>
+      <ItemList>
         <Text fontSize="medium" color="text" bold>
-          <styles.Link to="/">Analytics</styles.Link>
+          <Link to="/">Analytics</Link>
         </Text>
-      </styles.ItemList>
+      </ItemList>
 
-      <styles.ItemList>
+      <ItemList>
         <Text fontSize="medium" color="text" bold>
-          <styles.Link to="/">Learn</styles.Link>
+          <Link to="/">Learn</Link>
         </Text>
-      </styles.ItemList>
+      </ItemList>
 
-      <styles.ItemList>
+      <ItemList>
         <Text fontSize="medium" color="text" bold>
-          <styles.Link to="/">Settings</styles.Link>
+          <Link to="/">Settings</Link>
         </Text>
-      </styles.ItemList>
-    </styles.NavList>
-    <styles.ButtonLogoutGroup>
+      </ItemList>
+    </NavList>
+
+    <ButtonLogoutGroup>
       <TextButton type="submit">Logout</TextButton>
-      <Text>{'-->'}</Text>
-    </styles.ButtonLogoutGroup>
-  </styles.Container>
+      <icons.arrow_logout size="32" color={theme.colors.shape_dark} />
+    </ButtonLogoutGroup>
+  </Container>
 );

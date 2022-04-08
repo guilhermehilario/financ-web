@@ -8,3 +8,11 @@ export const Container = styled.div`
   justify-content: flex-start;
   background-color: ${theme.colors.success_light};
 `;
+
+export const DashboardContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+`;

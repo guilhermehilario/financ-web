@@ -9,7 +9,7 @@ export interface StyledTextProps {
   bold: boolean;
 }
 export const StyledText = styled.text<StyledTextProps>`
-  font-family: ${({ bold }) => (bold ? 'Inter-Bold' : 'Inter')};
+  font-family: ${({ bold }) => (bold ? 'Inter, sans-serif' : 'Inter')};
   color: ${({ color }) => theme.colors[color]};
   font-size: ${({ fontSize }) => theme.fontSize[fontSize]}px;
   text-transform: ${({ textCase }) => textCase};

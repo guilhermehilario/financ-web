@@ -3,6 +3,8 @@ import { Link as Linking } from 'react-router-dom';
 import { lighten } from 'polished';
 import styled from 'styled-components';
 
+import { icons } from '../../global/icons';
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -44,5 +46,10 @@ export const ButtonLogoutGroup = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
+`;
+
+export const Icon = styled(icons.arrow_logout)`
+  color: ${({ theme }) => theme.colors.success};
 `;

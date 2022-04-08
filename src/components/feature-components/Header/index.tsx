@@ -6,7 +6,7 @@ import { HeaderProps } from './types';
 
 export const Header = ({ title }: HeaderProps) => (
   <Container>
-    <Title fontSize="appTitle" color="white">
+    <Title fontSize="big" color="white">
       {title}
     </Title>
     <Card
