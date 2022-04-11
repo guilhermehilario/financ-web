@@ -1,9 +1,7 @@
 import React from 'react';
 
-import { iconsLib } from '../../global/icons';
-import { theme } from '../../global/theme';
+import { Icon } from '../Icon';
 import { Text } from '../Text';
-import { TextButton } from '../TextButton';
 import {
   Container,
   Avatar,
@@ -62,9 +60,19 @@ export const SideMenu: React.FC = () => (
         </ItemList>
       </NavList>
     </Content>
-    <ButtonLogoutGroup>
-      <TextButton>Logout</TextButton>
-      <iconsLib.arrow_logout size={30} color={theme.colors.shape_dark} />
-    </ButtonLogoutGroup>
+    <Link to="/">
+      <ButtonLogoutGroup>
+        <Text
+          fontSize="medium"
+          color="secondary"
+          bold
+          letterSpacing="small"
+          textCase="uppercase"
+        >
+          Logout
+        </Text>
+        <Icon name="IoIosArrowRoundForward" color="secondary" size="small" />
+      </ButtonLogoutGroup>
+    </Link>
   </Container>
 );

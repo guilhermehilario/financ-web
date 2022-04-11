@@ -13,8 +13,8 @@ export const Header = ({ title }: HeaderProps) => (
       title="Banco1"
       currency="BRL"
       income={1000}
-      outcome={400}
-      value={100}
+      outcome={600}
+      value={400}
     />
   </Container>
 );

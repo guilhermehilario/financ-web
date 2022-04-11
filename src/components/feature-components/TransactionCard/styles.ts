@@ -11,7 +11,7 @@ type TransactionTypes = {
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.shape};
   border-radius: 20px;
   overflow: hidden;
   margin: 16px;
