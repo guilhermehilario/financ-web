@@ -1,7 +1,9 @@
 import React from 'react';
 
 import { Icon } from '../Icon';
+import { LinkButton } from '../LinkButton';
 import { Text } from '../Text';
+import { SideMenuMapper } from './mapper';
 import {
   Container,
   Avatar,
@@ -23,41 +25,11 @@ export const SideMenu: React.FC = () => (
         William de Souza
       </Text>
       <NavList>
-        <ItemList>
-          <Text fontSize="medium" color="text" bold>
-            <Link to="/">Dashboard</Link>
-          </Text>
-        </ItemList>
-
-        <ItemList>
-          <Text fontSize="medium" color="text" bold>
-            <Link to="/">Wallets</Link>
-          </Text>
-        </ItemList>
-
-        <ItemList>
-          <Text fontSize="medium" color="text" bold>
-            <Link to="/">Calendar</Link>
-          </Text>
-        </ItemList>
-
-        <ItemList>
-          <Text fontSize="medium" color="text" bold>
-            <Link to="/">Analytics</Link>
-          </Text>
-        </ItemList>
-
-        <ItemList>
-          <Text fontSize="medium" color="text" bold>
-            <Link to="/">Learn</Link>
-          </Text>
-        </ItemList>
-
-        <ItemList>
-          <Text fontSize="medium" color="text" bold>
-            <Link to="/">Settings</Link>
-          </Text>
-        </ItemList>
+        {Object.keys(SideMenuMapper).map(menu => (
+          <ItemList key={menu}>
+            <LinkButton to={SideMenuMapper[menu]} label={menu} />
+          </ItemList>
+        ))}
       </NavList>
     </Content>
     <Link to="/">

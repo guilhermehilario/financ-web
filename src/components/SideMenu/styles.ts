@@ -36,7 +36,6 @@ export const NavList = styled.ul`
 `;
 
 export const ItemList = styled.li`
-  padding: 16px 0;
   width: 100%;
   border-bottom: 2px solid
     ${({ theme }) => lighten(0.3, theme.colors.text_light)};
