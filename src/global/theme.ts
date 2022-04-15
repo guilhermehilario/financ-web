@@ -35,4 +35,11 @@ export const theme = {
     default: 40,
     small: 20,
   },
+  sizes: {
+    big: 1920,
+    normal: 1280,
+    medium: 960,
+    small: 600,
+    xsmall: 0,
+  },
 };

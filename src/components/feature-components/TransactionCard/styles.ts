@@ -14,8 +14,7 @@ export const Container = styled.div`
   background-color: ${({ theme }) => theme.colors.shape};
   border-radius: 20px;
   overflow: hidden;
-  margin: 16px;
-  width: 90%;
+  margin: 1rem 2rem 0.5rem;
 `;
 
 export const IconWrapper = styled.div<TransactionTypes>`
@@ -31,12 +30,12 @@ export const IconWrapper = styled.div<TransactionTypes>`
 
 export const InfoWrapper = styled.div`
   flex: 1;
-  padding: 20px;
+  padding: 1.1rem;
 `;
 
 export const InfoContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-bottom: 15px;
+  margin-bottom: 1rem;
 `;

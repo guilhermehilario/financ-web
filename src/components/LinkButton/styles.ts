@@ -7,9 +7,7 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: space-between;
 `;
+
 export const Link = styled(Linking)`
-  padding: 16px 8px;
-  border-radius: 8px;
-  color: inherit;
   text-decoration: none;
 `;

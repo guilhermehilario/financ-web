@@ -1,20 +1,38 @@
 import React from 'react';
 
 import { Card } from '../Card';
-import { Container, Title } from './styles';
+import { Container, Title, Header, Section } from './styles';
 import { HeaderProps } from './types';
 
-export const Header = ({ title }: HeaderProps) => (
+export const HeaderWrapper = ({ title }: HeaderProps) => (
   <Container>
-    <Title fontSize="big" color="white">
-      {title}
-    </Title>
-    <Card
-      title="Banco1"
-      currency="BRL"
-      income={1000}
-      outcome={600}
-      value={400}
-    />
+    <Header>
+      <Title fontSize="normal" color="white">
+        {title}
+      </Title>
+    </Header>
+    <Section>
+      <Card
+        title="Banco1"
+        currency="BRL"
+        income={1000}
+        outcome={600}
+        value={400}
+      />
+      <Card
+        title="Banco1"
+        currency="BRL"
+        income={1000}
+        outcome={600}
+        value={400}
+      />
+      <Card
+        title="Banco1"
+        currency="BRL"
+        income={1000}
+        outcome={600}
+        value={400}
+      />
+    </Section>
   </Container>
 );

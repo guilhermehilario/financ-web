@@ -1,10 +1,15 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
+import { SideMenu } from '../components/SideMenu';
 import { Dashboard } from '../pages/Dashboard';
+import { Container } from './styles';
 
 export const Root: React.FC = () => (
-  <Routes>
-    <Route path="/" element={<Dashboard />} />
-  </Routes>
+  <Container>
+    <SideMenu />
+    <Routes>
+      <Route path="/dashboard" element={<Dashboard />} />
+    </Routes>
+  </Container>
 );
