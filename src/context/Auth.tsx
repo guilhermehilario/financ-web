@@ -1,12 +1,13 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 
 import {
   getAuth,
   signOut as signOutUser,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  onAuthStateChanged,
 } from 'firebase/auth';
+
+import '../google-services';
 
 export type Maybe<T> = T | null | undefined;
 
