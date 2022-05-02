@@ -1,15 +1,20 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
 
 import { SideMenu } from '../components/SideMenu';
-import { Dashboard } from '../pages/Dashboard';
+// import { useAuth } from '../context/Auth';
+import { AppRoutes } from './app.routes';
+import { AuthRoutes } from './auth.routes';
 import { Container } from './styles';
 
-export const Root: React.FC = () => (
-  <Container>
-    <SideMenu />
-    <Routes>
-      <Route path="/dashboard" element={<Dashboard />} />
-    </Routes>
-  </Container>
-);
+import '../google-services';
+
+export const Root: React.FC = () => {
+  const auth = true;
+
+  return (
+    <Container>
+      <SideMenu />
+      {auth ? <AppRoutes /> : <AuthRoutes />}
+    </Container>
+  );
+};
