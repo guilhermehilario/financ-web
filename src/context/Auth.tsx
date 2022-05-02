@@ -7,38 +7,14 @@ import {
   signInWithEmailAndPassword,
 } from 'firebase/auth';
 
+import {
+  AuthProviderProps,
+  UserCredentialProps,
+  SignInProps,
+  SignUpProps,
+} from '../routes/types';
+
 import '../google-services';
-
-export type Maybe<T> = T | null | undefined;
-
-export type AsyncMaybe<T> = Promise<Maybe<T>>;
-type UserCredentialProps = {
-  uid: Maybe<string>;
-  email: Maybe<string>;
-  photoURL: Maybe<string>;
-  displayName: Maybe<string>;
-  infoToken: {
-    accessToken: Maybe<string>;
-    refreshToken: Maybe<string>;
-  };
-};
-
-type AuthProps = {
-  email: string;
-  password: string;
-};
-
-type SignInProps = Pick<AuthProps, 'email' | 'password'>;
-
-type SignUpProps = Pick<AuthProps, 'email' | 'password'>;
-
-type AuthProviderProps = {
-  userCredential: UserCredentialProps | undefined;
-  isAuthenticated(): Promise<any>;
-  signIn({ email, password }: SignInProps): Promise<any>;
-  signUp({ email, password }: SignUpProps): Promise<any>;
-  signOut(): Promise<any>;
-};
 
 const AuthContext = createContext<AuthProviderProps>({} as AuthProviderProps);
 
