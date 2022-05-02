@@ -6,8 +6,6 @@ import { AppRoutes } from './app.routes';
 import { AuthRoutes } from './auth.routes';
 import { Container } from './styles';
 
-import '../google-services';
-
 export const Root: React.FC = () => {
   const auth = true;
 
