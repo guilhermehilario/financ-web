@@ -1,10 +1,10 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import { Test } from '../pages/Test';
+import { Signin } from '../pages/Auth/Signin';
 
 export const AuthRoutes: React.FC = () => (
   <Routes>
-    <Route path="/test" element={<Test />} />
+    <Route path="/signin" element={<Signin />} />
   </Routes>
 );

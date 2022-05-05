@@ -37,11 +37,15 @@ export const AuthProvider: React.FC = ({ children }) => {
           refreshToken: user?.refreshToken,
         },
       });
+
+      return !!userCredential;
     });
 
   const signIn = async ({ email, password }: SignInProps): Promise<any> => {
     try {
       const { user } = await signInWithEmailAndPassword(auth, email, password);
+
+      console.log(user);
 
       setUserCredential({
         uid: user.uid,
@@ -85,7 +89,7 @@ export const AuthProvider: React.FC = ({ children }) => {
     }
   };
 
-  const signOut = (): Promise<any> => signOutUser(auth);
+  const signOut = () => signOutUser(auth);
 
   return (
     <AuthContext.Provider
