@@ -24,7 +24,6 @@ export const Dashboard: React.FC = () => {
   const getWallets = async () => {
     const wallets = await getDocs(collection(db, 'wallets'));
     wallets.forEach(doc => setWalletsList(doc.data()));
-    console.count();
   };
 
   useEffect(() => {

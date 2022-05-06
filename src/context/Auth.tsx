@@ -1,20 +1,15 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext } from 'react';
 
 import {
-  getAuth,
-  signOut as signOutUser,
   createUserWithEmailAndPassword,
+  getAuth,
   signInWithEmailAndPassword,
+  signOut as signOutUser,
 } from 'firebase/auth';
 
-import {
-  AuthProviderProps,
-  UserCredentialProps,
-  SignInProps,
-  SignUpProps,
-} from '../routes/types';
-
 import '../google-services';
+import useFirebaseAuthentication from '../hook/useFirebaseAuthentication';
+import { AuthProviderProps, SignInProps, SignUpProps } from '../routes/types';
 
 const AuthContext = createContext<AuthProviderProps>({} as AuthProviderProps);
 
@@ -23,42 +18,15 @@ const auth = getAuth();
 export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider: React.FC = ({ children }) => {
-  const [userCredential, setUserCredential] = useState<UserCredentialProps>();
-
-  const isAuthenticated = async () =>
-    auth.onAuthStateChanged(async user => {
-      setUserCredential({
-        uid: user?.uid,
-        email: user?.email,
-        displayName: user?.displayName,
-        photoURL: user?.photoURL,
-        infoToken: {
-          accessToken: await user?.getIdToken(),
-          refreshToken: user?.refreshToken,
-        },
-      });
-
-      return !!userCredential;
-    });
+  const isAuthenticated = useFirebaseAuthentication();
 
   const signIn = async ({ email, password }: SignInProps): Promise<any> => {
     try {
       const { user } = await signInWithEmailAndPassword(auth, email, password);
 
-      console.log(user);
+      localStorage.setItem('@FNWeb:user', JSON.stringify(user));
 
-      setUserCredential({
-        uid: user.uid,
-        email: user.email,
-        displayName: user.displayName,
-        photoURL: user.photoURL,
-        infoToken: {
-          accessToken: await user.getIdToken(),
-          refreshToken: user.refreshToken,
-        },
-      });
-
-      return userCredential;
+      return user;
     } catch (error) {
       return error;
     }
@@ -72,18 +40,9 @@ export const AuthProvider: React.FC = ({ children }) => {
         password,
       );
 
-      setUserCredential({
-        uid: user.uid,
-        email: user.email,
-        displayName: user.displayName,
-        photoURL: user.photoURL,
-        infoToken: {
-          accessToken: await user.getIdToken(),
-          refreshToken: user.refreshToken,
-        },
-      });
+      Promise.all([localStorage.setItem('@FNWeb:user', JSON.stringify(user))]);
 
-      return userCredential;
+      return user;
     } catch (error) {
       return error;
     }
@@ -92,9 +51,7 @@ export const AuthProvider: React.FC = ({ children }) => {
   const signOut = () => signOutUser(auth);
 
   return (
-    <AuthContext.Provider
-      value={{ userCredential, isAuthenticated, signIn, signUp, signOut }}
-    >
+    <AuthContext.Provider value={{ isAuthenticated, signIn, signUp, signOut }}>
       {children}
     </AuthContext.Provider>
   );

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 // import { SideMenu } from '../components/SideMenu';
 import { useAuth } from '../context/Auth';
@@ -7,18 +7,20 @@ import { AuthRoutes } from './auth.routes';
 import { Container } from './styles';
 
 export const Root: React.FC = () => {
-  const [auth, setAuth] = useState(false);
-
+  const [auth, setAuth] = useState();
   const { isAuthenticated } = useAuth();
 
+  const loadAuth = useCallback(async () => {
+    setAuth(isAuthenticated);
+  }, [isAuthenticated, setAuth]);
+
   useEffect(() => {
-    (async () => setAuth(await isAuthenticated()))();
-  });
+    loadAuth();
+  }, [loadAuth]);
 
   return (
     <Container>
       {/* <SideMenu /> */}
-      {console.log(auth)}
       {auth ? <AppRoutes /> : <AuthRoutes />}
     </Container>
   );

@@ -9,8 +9,9 @@ export const Signin = () => {
 
   const { register, handleSubmit } = useForm();
 
-  const handleSignin = ({ email, password }: any) => {
-    const response = signIn({ email, password });
+  const handleSignin = async ({ email, password }: any) => {
+    const response = await signIn({ email, password });
+
     return response;
   };
 
