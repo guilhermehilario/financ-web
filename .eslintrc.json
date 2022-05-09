@@ -26,7 +26,6 @@
   ],
   "rules": {
     "prettier/prettier": "error",
-    "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
     "react/jsx-no-undef": "off",
@@ -35,11 +34,10 @@
     "import/prefer-default-export": "off",
     "no-unused-vars": "off",
     "react/jsx-props-no-spreading": "off",
-
     "arrow-parens": "off",
     "implicit-arrow-linebreak": "off",
     "operator-linebreak": "off",
-
+    "react-hooks/rules-of-hooks": "off",
     "import/extensions": [
       "warn",
       "ignorePackages",

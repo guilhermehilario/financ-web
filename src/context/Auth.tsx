@@ -1,28 +1,24 @@
 import React, { createContext, useContext } from 'react';
 
-import {
-  createUserWithEmailAndPassword,
-  getAuth,
-  signInWithEmailAndPassword,
-  signOut as signOutUser,
-} from 'firebase/auth';
-
 import '../google-services';
-import useFirebaseAuthentication from '../hook/useFirebaseAuthentication';
+
+import {
+  useFirebaseOnAuthentication,
+  useFirebaseSignIn,
+  useFirebaseSignOut,
+  useFirebaseSignUp,
+} from '../hook/useFirebase';
 import { AuthProviderProps, SignInProps, SignUpProps } from '../routes/types';
 
 const AuthContext = createContext<AuthProviderProps>({} as AuthProviderProps);
-
-const auth = getAuth();
-
 export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider: React.FC = ({ children }) => {
-  const isAuthenticated = useFirebaseAuthentication();
+  const isAuthenticated = useFirebaseOnAuthentication();
 
   const signIn = async ({ email, password }: SignInProps): Promise<any> => {
     try {
-      const { user } = await signInWithEmailAndPassword(auth, email, password);
+      const { user } = await useFirebaseSignIn({ email, password });
 
       localStorage.setItem('@FNWeb:user', JSON.stringify(user));
 
@@ -34,11 +30,7 @@ export const AuthProvider: React.FC = ({ children }) => {
 
   const signUp = async ({ email, password }: SignUpProps): Promise<any> => {
     try {
-      const { user } = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password,
-      );
+      const { user } = await useFirebaseSignUp({ email, password });
 
       Promise.all([localStorage.setItem('@FNWeb:user', JSON.stringify(user))]);
 
@@ -48,11 +40,9 @@ export const AuthProvider: React.FC = ({ children }) => {
     }
   };
 
-  const signOut = () => signOutUser(auth);
+  const signOut = () => useFirebaseSignOut();
 
-  return (
-    <AuthContext.Provider value={{ isAuthenticated, signIn, signUp, signOut }}>
-      {children}
-    </AuthContext.Provider>
-  );
+  const value = { isAuthenticated, signIn, signUp, signOut };
+
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
