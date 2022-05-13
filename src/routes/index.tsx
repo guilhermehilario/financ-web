@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-// import { SideMenu } from '../components/SideMenu';
-import { useAuth } from '../context/Auth';
+import { useAuth } from '../hook/useAuth';
 import { AppRoutes } from './app.routes';
 import { AuthRoutes } from './auth.routes';
 import { Container } from './styles';
@@ -9,6 +9,7 @@ import { Container } from './styles';
 export const Root: React.FC = () => {
   const [auth, setAuth] = useState();
   const { isAuthenticated } = useAuth();
+  const navigate = useNavigate();
 
   const loadAuth = useCallback(async () => {
     setAuth(isAuthenticated);
@@ -16,12 +17,15 @@ export const Root: React.FC = () => {
 
   useEffect(() => {
     loadAuth();
+
+    auth ? navigate('/dashboard') : navigate('/signin');
   }, [loadAuth]);
+
+  const Layout = auth ? AppRoutes : AuthRoutes;
 
   return (
     <Container>
-      {/* <SideMenu /> */}
-      {auth ? <AppRoutes /> : <AuthRoutes />}
+      <Layout />
     </Container>
   );
 };

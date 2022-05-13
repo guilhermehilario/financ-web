@@ -107,9 +107,10 @@ export const ItemList = styled.li`
   list-style: none;
 `;
 
-export const Link = styled(Linking)`
+export const Link = styled.button`
   color: inherit;
   text-decoration: none;
+  cursor: pointer;
 `;
 
 export const ButtonLogoutGroup = styled.div`

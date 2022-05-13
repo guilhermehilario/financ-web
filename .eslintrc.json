@@ -38,6 +38,8 @@
     "implicit-arrow-linebreak": "off",
     "operator-linebreak": "off",
     "react-hooks/rules-of-hooks": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "no-unused-expressions": "off",
     "import/extensions": [
       "warn",
       "ignorePackages",

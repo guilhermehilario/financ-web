@@ -1,7 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { Divider, Stack } from '@mui/material';
 
+import { useAuth } from '../../hook/useAuth';
 import { Icon } from '../Icon';
 import { LinkButton } from '../LinkButton';
 import { Text } from '../Text';
@@ -18,54 +20,65 @@ import {
   Section,
 } from './styles';
 
-export const SideMenu: React.FC = () => (
-  <Container>
-    <Header>
-      <Avatar
-        alt="Will"
-        src="https://avatars.githubusercontent.com/u/54961000?v=4"
-      />
+export const SideMenu = () => {
+  const { signOut } = useAuth();
+  const navigate = useNavigate();
 
-      <Text fontSize="normal" color="secondary" bold>
-        William de Souza
-      </Text>
-    </Header>
+  const handleSignOut = async () => {
+    await signOut();
 
-    <Section>
-      <Main>
-        <Stack
-          direction="column"
-          divider={<Divider orientation="horizontal" flexItem />}
-          spacing={2}
-        >
-          {Object.keys(SideMenuMapper).map(menu => (
-            <ItemList key={menu}>
-              <LinkButton to={SideMenuMapper[menu]} label={menu} />
-            </ItemList>
-          ))}
-        </Stack>
-      </Main>
+    navigate('/signin');
+  };
 
-      <Footer>
-        <Link to="/">
-          <ButtonLogoutGroup>
-            <Text
-              fontSize="medium"
-              color="secondary"
-              bold
-              letterSpacing="small"
-              textCase="uppercase"
-            >
-              Logout
-            </Text>
-            <Icon
-              name="IoIosArrowRoundForward"
-              color="secondary"
-              size="default"
-            />
-          </ButtonLogoutGroup>
-        </Link>
-      </Footer>
-    </Section>
-  </Container>
-);
+  return (
+    <Container>
+      <Header>
+        <Avatar
+          alt="Will"
+          src="https://avatars.githubusercontent.com/u/54961000?v=4"
+        />
+
+        <Text fontSize="normal" color="secondary" bold>
+          William de Souza
+        </Text>
+      </Header>
+
+      <Section>
+        <Main>
+          <Stack
+            direction="column"
+            divider={<Divider orientation="horizontal" flexItem />}
+            spacing={2}
+          >
+            {Object.keys(SideMenuMapper).map(menu => (
+              <ItemList key={menu}>
+                <LinkButton to={SideMenuMapper[menu]} label={menu} />
+              </ItemList>
+            ))}
+          </Stack>
+        </Main>
+
+        <Footer>
+          <Link onClick={() => handleSignOut}>
+            <ButtonLogoutGroup>
+              <Text
+                fontSize="medium"
+                color="secondary"
+                bold
+                letterSpacing="small"
+                textCase="uppercase"
+              >
+                Logout
+              </Text>
+              <Icon
+                name="IoIosArrowRoundForward"
+                color="secondary"
+                size="default"
+              />
+            </ButtonLogoutGroup>
+          </Link>
+        </Footer>
+      </Section>
+    </Container>
+  );
+};
