@@ -7,19 +7,19 @@ import { AuthRoutes } from './auth.routes';
 import { Container } from './styles';
 
 export const Root: React.FC = () => {
-  const [auth, setAuth] = useState();
-  const { isAuthenticated } = useAuth();
-  const navigate = useNavigate();
+  const [auth, setAuth] = useState(false);
+  // const { isAuthenticated } = useAuth();
+  // const navigate = useNavigate();
 
-  const loadAuth = useCallback(async () => {
-    setAuth(isAuthenticated);
-  }, [isAuthenticated, setAuth]);
+  // const loadAuth = useCallback(async () => {
+  //   setAuth(isAuthenticated);
+  // }, [isAuthenticated, setAuth]);
 
-  useEffect(() => {
-    loadAuth();
+  // useEffect(() => {
+  //   loadAuth();
 
-    auth ? navigate('/dashboard') : navigate('/signin');
-  }, [loadAuth]);
+  //   auth ? navigate('/dashboard') : navigate('/signin');
+  // }, [loadAuth]);
 
   const Layout = auth ? AppRoutes : AuthRoutes;
 

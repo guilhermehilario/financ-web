@@ -51,7 +51,6 @@ export const useFirebaseSignOut = async () => {
 
 export const useFirebaseOnAuthentication = () => {
   const [authUser, setAuthUser] = useState<any>(null);
-
   useEffect(() => {
     const onAuth = onAuthStateChanged(
       authentication,
