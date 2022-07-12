@@ -272,6 +272,14 @@ export const { createTheme, globalCss, getCssText, styled, theme } =
         lg: '1024px',
         xl: '1280px',
       },
+      radii: {
+        rounded: '4px',
+        'rounded-none': '0px',
+        'rounded-sm': '2px',
+        'rounded-md': '6px',
+        'rounded-lg': '8px',
+        'rounded-xl': '12px',
+      },
     },
 
     media: {
@@ -283,8 +291,14 @@ export const { createTheme, globalCss, getCssText, styled, theme } =
 
     utils: {
       size: value => ({
-        width: value,
-        height: value,
+        width: `${value}vw`,
+        height: `${value}vh`,
+      }),
+
+      flexBox: value => ({
+        display: value,
+        alignItems: 'center',
+        justifyContent: 'center',
       }),
     },
   });
